@@ -19,10 +19,11 @@ Client:on("ready", function()
 end)
 
 Client:on('messageCreate', function(Message)
+	if Message.channel.id == 450697056013778945 and string.sub(Message.content,1,5) ~= "*order" then Message:delete() end
 	if string.sub(Message.content, 1, 1) ~= "*" then return end
 	
 	local Content = Message.content:sub(2)
-    local Args = Content:split(" ")	
+    	local Args = Content:split(" ")	
 
 	local Command = string.lower(Args[1])
 	table.remove(args,1)
