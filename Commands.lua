@@ -73,6 +73,8 @@ Commands["order"] ={
 		local orderChannel = Client:getChannel('449999290992164874')
 
 		local message = orderChannel:send("@here\n"..table.concat(Args, " ", 2).."\n~"..Mention(Message))
+		Message:reply("I have submitted your order.")
+		
 		message:addReaction('✅') --tick
 		message:addReaction('❎') --cross
 				
