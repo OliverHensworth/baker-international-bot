@@ -3,7 +3,7 @@ local discordia = require('discordia')
 local http = require('coro-http')
 
 local Mention = function(message)
-	return("<@"..message.author.id..">")
+	return "<@"..message.author.id..">"
 end
 
 local stringifyArgs = function(args)
@@ -72,9 +72,9 @@ Commands["order"] ={
 	Execute = function(Client,Message,Command,Args)
 		local orderChannel = Client:getChannel('449999290992164874')
 
-		local message = orderChannel:send("@here\n"..table.concat(Args, " ", 2).."\n~"..Mention(message))
-		--message:addReaction('✅') --tick
-		--message:addReaction('❎') --cross
+		local message = orderChannel:send("@here\n"..table.concat(Args, " ", 2).."\n~"..Mention(Message))
+		message:addReaction('✅') --tick
+		message:addReaction('❎') --cross
 				
 	end
 }
